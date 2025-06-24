@@ -5,3 +5,13 @@ Content-Type: application/json
   "name": "Jose Joseph Josepenson",
   "number": "1231414"
 }
+
+###
+
+POST https://phonebook-backend-p2z4.onrender.com/api/persons
+Content-Type: application/json
+
+{
+"name": "Jose Joseph Josepenson",
+"number": "1231414"
+}

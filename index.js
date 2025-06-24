@@ -29,6 +29,11 @@ let persons = [
         "id": "5",
         "name": "Chimpi Chompi",
         "number": "12-34-7894563"
+    },
+    {
+        "id": "7",
+        "name": "TESTING",
+        "number": "1111111"
     }
 ]
 
@@ -98,5 +103,5 @@ app.post('/api/persons', (request, response) => {
 
 const PORT = 3001;
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`Server running on port ${PORT} ::`);
 });
