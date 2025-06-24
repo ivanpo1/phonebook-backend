@@ -35,7 +35,9 @@ let persons = [
 morgan.token('content', function (req, res) {
     return JSON.stringify(req['body'])
 })
+
 app.use(morgan('tiny :content'))
+app.use(express.static('dist'))
 
 app.get('/api/persons', (request, response) => {
     response.json(persons)
@@ -97,5 +99,4 @@ app.post('/api/persons', (request, response) => {
 const PORT = 3001;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
-    console.log(' http://localhost:3001/ ');
 });
