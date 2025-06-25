@@ -48,7 +48,7 @@ app.delete('/api/persons/:id', (request, response) => {
     response.status(204).end()
 })
 
-app.post('/api/persons', (request, response) => {
+app.post('/api/persons', async(request, response) => {
     const body = request.body
 
     if (!body.name || !body.number) {
@@ -57,7 +57,9 @@ app.post('/api/persons', (request, response) => {
         })
     }
 
-    if (Person.find({ name: body.name } )) {
+
+    const alreadyExist = await Person.findOne({name: body.name})
+    if (alreadyExist) {
         return response.status(400).json({
             error: 'name must be unique'
         })
