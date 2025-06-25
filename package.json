@@ -8,8 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:ui": "powershell -Command \"Set-Location 'E:/_Coding/fullStackOpen/fullstackopen/part2/phonebook'; npm run build; Remove-Item -Recurse -Force 'E:/_Coding/phonebook-backend/dist' -ErrorAction SilentlyContinue; Move-Item -Path 'dist' -Destination 'E:/_Coding/phonebook-backend'\"",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
-  }
-,
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/ivanpo1/fullstackopen.git"
@@ -23,6 +22,7 @@
   "description": "",
   "dependencies": {
     "express": "^5.1.0",
+    "mongoose": "^8.16.0",
     "morgan": "^1.10.0"
   }
 }
