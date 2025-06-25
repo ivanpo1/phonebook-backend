@@ -34,7 +34,10 @@ const Person = mongoose.model('Person', personSchema)
 // if (process.argv.length === 4) {
 //     console.log('please add a number')
 //     process.exit(1)
-// }
+// }       mongoose.connection.close()
+// //         process.exit(1)
+// //     })
+// // }
 //
 // if (process.argv.length === 5) {
 //     const name = process.argv[3]
@@ -46,9 +49,14 @@ const Person = mongoose.model('Person', personSchema)
 //
 //     person.save().then(result => {
 //         console.log(result)
-//         mongoose.connection.close()
-//         process.exit(1)
-//     })
-// }
+//
+
+personSchema.set('toJSON', {
+    transform: (document, returnedObject) => {
+        returnedObject.id = returnedObject._id.toString()
+        delete returnedObject._id
+        delete returnedObject.__v
+    }
+})
 
 module.exports = mongoose.model('Person', personSchema)
